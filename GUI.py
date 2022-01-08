@@ -170,9 +170,8 @@ class CustomMainWindow(QMainWindow):
         )
 
         self.webview.load(
-            QUrl("https://cb3d-116-110-43-134.ngrok.io/stream")
+            QUrl("https://3fa5-116-110-43-134.ngrok.io/stream")
         )
-
 
         videoCapture = threading.Thread(name = 'VideoCapture', target = self.videoCaptureThread)
         modelRun = threading.Thread(name = 'ModelRun', target = self.modelRunThread)
