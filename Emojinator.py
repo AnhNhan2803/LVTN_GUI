@@ -61,6 +61,8 @@ class emojinator_model(object):
                 thresh = thresh[self.y:self.y + self.h, self.x:self.x + self.w]
                 contours = cv2.findContours(thresh.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)[0]
 
+                img1 = img[self.y:self.y + self.h, self.x:self.x + self.w]
+
                 if is_run_model:
                     if len(contours) > 0:
                         contour = max(contours, key=cv2.contourArea)
@@ -72,6 +74,7 @@ class emojinator_model(object):
                             # print(pred_class, pred_probab)
                             img = self.overlay(img, self.emojis[pred_class], 400, 250, 90, 90)
                 else:
+                    # img1 = img[self.y:self.y + self.h, self.x:self.x + self.w]
                     pred_class = None
 
                 self.x, self.y, self.w, self.h = 300, 50, 350, 350
@@ -80,7 +83,7 @@ class emojinator_model(object):
                 # Put Image and Contours to Queue here
 
                 self.image_queue_idx += 1
-                self.image_queue.put((self.image_queue_idx, [img, thresh]))
+                self.image_queue.put((self.image_queue_idx, [img1, thresh]))
 
                 k = cv2.waitKey(10)
                 if k == 27:
