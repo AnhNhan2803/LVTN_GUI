@@ -112,7 +112,7 @@ class emojinator_model(object):
         emojis_folder = 'hand_emo/'
         emojis = []
         for emoji in range(len(os.listdir(emojis_folder))):
-            print(emoji)
+            # print(emoji)
             emojis.append(cv2.imread(emojis_folder+str(emoji)+'.png', -1))
         return emojis
 

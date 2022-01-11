@@ -1,4 +1,3 @@
-
 '''
 author: Nhan <anhnhancao@gmail.com>
 brief: GUI for video streaming, car controller and model running
